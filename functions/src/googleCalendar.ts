@@ -7,8 +7,8 @@ const SCOPES = [
 ];
 
 const getOAuth2Client = (redirectUrl: string) => {
-    const CLIENT_ID = '809741121253-bm30ph41e5i9gs78i5pmb9eu9d3odg7p.apps.googleusercontent.com';
-    const CLIENT_SECRET = 'D7JxZoeVoCuo8TUrShx5h-H3';
+    const CLIENT_ID = functions.config().google_oauth.id;
+    const CLIENT_SECRET = functions.config().google_oauth.secret;
     const REDIRECT_URL = redirectUrl;
 
     return new google.auth.OAuth2(
