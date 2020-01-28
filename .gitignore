@@ -28,4 +28,5 @@ firebase-debug.log
 firestore-debug.log
 
 # Configuration files
+.runtimeconfig.json
 .env
