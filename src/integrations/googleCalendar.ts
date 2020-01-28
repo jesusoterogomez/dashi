@@ -8,11 +8,8 @@ const enable = async () => {
             redirectUrl: `${window.location.protocol}//${window.location.host}/oauth/callback`
         };
 
-        const response = await firebase.functions().httpsCallable('authorizeGoogleCalendar')(payload);
-        console.log(response);
-        // const {authUrl} = response.data;
-
-        // window.location.href = authUrl;
+        const {data} = await firebase.functions().httpsCallable('authorizeGoogleCalendar')(payload);
+        window.location.href = data;
     } catch(error) {
         console.error(error);
     }
