@@ -23,7 +23,7 @@ export default class OAuth extends React.Component<Props> {
         await googleCalendar.setup(code);
 
         if (this.props.navigate) {
-            return this.props.navigate('profile');
+            return this.props.navigate('/profile');
         }
 
     }
