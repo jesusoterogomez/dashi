@@ -66,10 +66,7 @@ const getProfileData = async (
  * @param data
  * - redirectUrl - OAuth2 callback URL
  */
-const authorize = (
-    data: { redirectUrl: string },
-    _context: functions.https.CallableContext
-) => {
+const authorize = (data: { redirectUrl: string }) => {
     const client = getOAuth2Client(data.redirectUrl);
 
     const url = client.generateAuthUrl({

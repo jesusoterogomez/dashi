@@ -32,7 +32,6 @@ export const init = () => {
     // Connect to function emulator
     if (process.env.NODE_ENV !== 'production') {
         firebase.functions().useFunctionsEmulator('http://localhost:5001');
-        firebase.app().functions('europe-west1');
     }
 
     firebase.app().functions('europe-west1');
