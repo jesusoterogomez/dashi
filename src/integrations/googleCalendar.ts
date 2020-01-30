@@ -1,4 +1,3 @@
-
 import firebase from 'firebase';
 
 const OAUTH_CALLBACK_URL = `${window.location.protocol}//${window.location.host}/oauth/callback`;
@@ -6,36 +5,43 @@ const OAUTH_CALLBACK_URL = `${window.location.protocol}//${window.location.host}
 const enable = async () => {
     try {
         const payload = {
-            redirectUrl: OAUTH_CALLBACK_URL
+            redirectUrl: OAUTH_CALLBACK_URL,
         };
 
-        const {data} = await firebase.functions().httpsCallable('authorizeGoogleCalendar')(payload);
+        const { data } = await firebase
+            .functions()
+            .httpsCallable('authorizeGoogleCalendar')(payload);
+
+        // Redirect to auth URL
         window.location.href = data;
-    } catch(error) {
+    } catch (error) {
         console.error(error);
     }
-}
+};
 
 const setup = async (code: string) => {
     try {
         const payload = {
             redirectUrl: OAUTH_CALLBACK_URL,
-            code
+            code,
         };
 
-        const response = await firebase.functions().httpsCallable('setupGoogleCalendar')(payload);
+        const response = await firebase
+            .functions()
+            .httpsCallable('setupGoogleCalendar')(payload);
+
         return response;
-    } catch(error) {
+    } catch (error) {
         console.error(error);
     }
-}
+};
 
 const disable = () => {
     return true;
-}
+};
 
 export default {
     enable,
     setup,
-    disable
+    disable,
 };

@@ -8,11 +8,13 @@ import googleCalendar from './googleCalendar';
 // The .firebase.service_account.json is git ignored and can be downloaded from the Firebase console: (Project Settings > Service accounts)
 // @see: https://github.com/firebase/firebase-tools/issues/1412#issuecomment-504561828
 if (process.env.FUNCTIONS_EMULATOR) {
-    process.env.GOOGLE_APPLICATION_CREDENTIALS = "../.firebase.service_account.json"
+    process.env.GOOGLE_APPLICATION_CREDENTIALS =
+        '../.firebase.service_account.json';
 }
 
 const region = 'europe-west1';
-const createFunction = (invokeFunction: any) => functions.region(region).https.onCall(invokeFunction);
+const createFunction = (invokeFunction: any) =>
+    functions.region(region).https.onCall(invokeFunction);
 
 export const authorizeGoogleCalendar = createFunction(googleCalendar.authorize);
 export const setupGoogleCalendar = createFunction(googleCalendar.setup);

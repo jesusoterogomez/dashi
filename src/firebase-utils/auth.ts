@@ -2,11 +2,11 @@ import firebase from 'firebase';
 import { storeUser } from './firestore';
 
 type AuthenticationCredential = {
-    idToken: string
-    accessToken: string
-    providerId: string
-    signingMethod: string
-}
+    idToken: string;
+    accessToken: string;
+    providerId: string;
+    signingMethod: string;
+};
 
 const loginWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -31,7 +31,6 @@ const loginWithGoogle = async () => {
         // const email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         // const credential = error.credential;
-
     }
 };
 
@@ -39,9 +38,4 @@ const logout = () => {
     firebase.auth().signOut();
 };
 
-
-
-export {
-    loginWithGoogle,
-    logout
-}
+export { loginWithGoogle, logout };
