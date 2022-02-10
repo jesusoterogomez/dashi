@@ -15,7 +15,7 @@
         "@types/react-dom": "^16.9.5",
         "firebase": "^7.7.0",
         "googleapis": "^47.0.0",
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "query-string": "^6.10.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
